@@ -5,8 +5,8 @@
 
 #include <zlib.h>
 
-#if ZLIB_VERNUM < 0x1280
-#error "Please upgrade your zlib library to version 1.2.8 or higher for security."
+#if ZLIB_VERNUM < 0x1230
+#error "Please upgrade your zlib library for security."
 #endif
 
 #include <gzipcomplete.hpp>
