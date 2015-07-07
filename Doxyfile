@@ -1,0 +1,7 @@
+PROJECT_NAME = zlibcomplete
+PROJECT_BRIEF = "Simple C++ wrapper for zlib using RAII and std::string with flush."
+OUTPUT_DIRECTORY = doc
+EXTRACT_ALL = yes
+
+INPUT = lib
+RECURSIVE = yes
