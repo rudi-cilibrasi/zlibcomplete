@@ -1,4 +1,4 @@
-#include <zlibcomplete.hpp>
+#include <zlc/zlibcomplete.hpp>
 #include <exception>
 #include <zlib.h>
 #include <string.h>
@@ -9,6 +9,7 @@ namespace zlibcomplete {
 ZLibBaseCompressor::ZLibBaseCompressor(int level, flush_parameter autoFlush,
                                        int windowBits) {
   int retval;
+  finished_ = false;
   strm_.zalloc = Z_NULL;
   strm_.zfree = Z_NULL;
   strm_.opaque = Z_NULL;
@@ -27,6 +28,10 @@ std::string ZLibBaseCompressor::baseCompress(const std::string& input) {
   int i;
   std::string result;
   int retval;
+  if (finished_) {
+    std::cerr << "Cannot compress data after calling finish.\n";
+    throw std::exception();
+  }
   for (i = 0; i < input.length(); i += ZLIB_COMPLETE_CHUNK) {
     int howManyLeft = input.length() - i;
     int howManyWanted = (howManyLeft > ZLIB_COMPLETE_CHUNK) ?
@@ -53,6 +58,13 @@ std::string ZLibBaseCompressor::baseFinish(void) {
   std::string result;
   int retval;
   int have;
+  if (finished_) {
+    std::cerr << "Cannot call finish more than once.\n";
+    throw std::exception();
+  }
+  finished_ = true;
+  strm_.avail_in = 0;
+  strm_.next_in = (Bytef *) in_;
   strm_.avail_out = ZLIB_COMPLETE_CHUNK;
   strm_.next_out = (Bytef *) out_;
   retval = deflate(&strm_, Z_FINISH);

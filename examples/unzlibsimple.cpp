@@ -9,7 +9,7 @@ int main(int argc, char **argv)
   const int CHUNK = 16384;
   char inbuf[CHUNK];
   int readBytes;
-  GZipDecompressor decompressor;
+  ZLibDecompressor decompressor;
   for (;;) {
     cin.read(inbuf, CHUNK);
     readBytes = cin.gcount();
@@ -17,8 +17,7 @@ int main(int argc, char **argv)
       break;
     }
     string input(inbuf, readBytes);
-    string output = decompressor.decompress(input);
-    cout << output;
+    cout << decompressor.decompress(input);
   }
   return 0;
 }

@@ -9,8 +9,8 @@
 #error "Please upgrade your zlib library for security."
 #endif
 
-#include <gzipcomplete.hpp>
-#include <zlibmisc.hpp>
-#include <zlibraw.hpp>
+#include <zlc/gzipcomplete.hpp>
+#include <zlc/zlibmisc.hpp>
+#include <zlc/zlibraw.hpp>
 
 #endif

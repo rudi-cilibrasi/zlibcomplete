@@ -1,4 +1,4 @@
-#include <zlibcomplete.hpp>
+#include <zlc/zlibcomplete.hpp>
 #include <exception>
 #include <zlib.h>
 #include <string.h>
@@ -9,6 +9,9 @@ namespace zlibcomplete {
 ZLibCompressor::ZLibCompressor(int level, flush_parameter autoFlush,
                                int windowBits) :
   ZLibBaseCompressor(level, autoFlush, windowBits) {
+}
+
+ZLibCompressor::~ZLibCompressor(void) {
 }
 
 std::string ZLibCompressor::compress(const std::string& input) {

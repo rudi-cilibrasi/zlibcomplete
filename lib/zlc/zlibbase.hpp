@@ -13,6 +13,7 @@ namespace zlibcomplete {
     char in_[ZLIB_COMPLETE_CHUNK];
     char out_[ZLIB_COMPLETE_CHUNK];
     bool autoFlush_;
+    bool finished_;
     z_stream strm_;
 protected:
     ZLibBaseCompressor(int level, flush_parameter autoFlush, int windowBits);

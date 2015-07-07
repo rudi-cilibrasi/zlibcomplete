@@ -1,7 +1,7 @@
 #ifndef __GZIPCOMPLETE_HPP
 #define __GZIPCOMPLETE_HPP
 
-#include <zlibbase.hpp>
+#include <zlc/zlibbase.hpp>
 
 namespace zlibcomplete {
 

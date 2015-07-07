@@ -1,7 +1,7 @@
 #ifndef __ZLIBRAW_HPP
 #define __ZLIBRAW_HPP
 
-#include <zlibbase.hpp>
+#include <zlc/zlibbase.hpp>
 
 namespace zlibcomplete {
 

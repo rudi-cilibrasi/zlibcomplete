@@ -1,0 +1,9 @@
+dependencies:
+    pre:
+        - sudo apt-get install autoconf-archive automake-1.14 autoconf2.59 build-essential check zlib1g-dev ruby
+test:
+    pre:
+        - ./bootstrap.sh
+        - make
+    override:
+        - ./test/runtests
