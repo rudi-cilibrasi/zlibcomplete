@@ -1,10 +1,20 @@
 var searchData=
 [
-  ['_7egzipdecompressor',['~GZipDecompressor',['../classzlibcomplete_1_1GZipDecompressor.html#a8803098284b7366c8d83fd5d929a5090',1,'zlibcomplete::GZipDecompressor']]],
-  ['_7erawdeflater',['~RawDeflater',['../classzlibcomplete_1_1RawDeflater.html#ad5d721666c75ceb0f306dc41df63aaaa',1,'zlibcomplete::RawDeflater']]],
-  ['_7erawinflater',['~RawInflater',['../classzlibcomplete_1_1RawInflater.html#a8e2b37398ceb6c7e9fddae8baf186399',1,'zlibcomplete::RawInflater']]],
-  ['_7ezlibbasecompressor',['~ZLibBaseCompressor',['../classzlibcomplete_1_1ZLibBaseCompressor.html#af661420306ad96b95a84e1fcd038d249',1,'zlibcomplete::ZLibBaseCompressor']]],
-  ['_7ezlibbasedecompressor',['~ZLibBaseDecompressor',['../classzlibcomplete_1_1ZLibBaseDecompressor.html#a7d3221e27b1838f9d773a1a020347992',1,'zlibcomplete::ZLibBaseDecompressor']]],
-  ['_7ezlibcompressor',['~ZLibCompressor',['../classzlibcomplete_1_1ZLibCompressor.html#a71ef2a2292a0c3957dcb89775783d32e',1,'zlibcomplete::ZLibCompressor']]],
-  ['_7ezlibdecompressor',['~ZLibDecompressor',['../classzlibcomplete_1_1ZLibDecompressor.html#aedd6096a922e10f49f69ef1b299e2628',1,'zlibcomplete::ZLibDecompressor']]]
+  ['zlibcomplete_20introduction',['zlibcomplete introduction',['../index.html',1,'']]],
+  ['zlib_5fcomplete_5fchunk',['ZLIB_COMPLETE_CHUNK',['../zlibbase_8hpp.html#a219d14a16e53ba62f58a739b1d8f9202',1,'zlibbase.hpp']]],
+  ['zlibbase_2ehpp',['zlibbase.hpp',['../zlibbase_8hpp.html',1,'']]],
+  ['zlibbasecompressor',['ZLibBaseCompressor',['../classzlibcomplete_1_1ZLibBaseCompressor.html',1,'zlibcomplete']]],
+  ['zlibbasecompressor',['ZLibBaseCompressor',['../classzlibcomplete_1_1ZLibBaseCompressor.html#a57fba716f805877956e732c17c314343',1,'zlibcomplete::ZLibBaseCompressor']]],
+  ['zlibbasedecompressor',['ZLibBaseDecompressor',['../classzlibcomplete_1_1ZLibBaseDecompressor.html',1,'zlibcomplete']]],
+  ['zlibbasedecompressor',['ZLibBaseDecompressor',['../classzlibcomplete_1_1ZLibBaseDecompressor.html#a1c562448cd451a36fc9fc6a13e06b4ee',1,'zlibcomplete::ZLibBaseDecompressor']]],
+  ['zlibcomplete',['zlibcomplete',['../namespacezlibcomplete.html',1,'']]],
+  ['zlibcomplete_2ehpp',['zlibcomplete.hpp',['../zlibcomplete_8hpp.html',1,'']]],
+  ['zlibcompressor',['ZLibCompressor',['../classzlibcomplete_1_1ZLibCompressor.html#ae77a7f159d950f498b90d49a9b7a47b5',1,'zlibcomplete::ZLibCompressor']]],
+  ['zlibcompressor',['ZLibCompressor',['../classzlibcomplete_1_1ZLibCompressor.html',1,'zlibcomplete']]],
+  ['zlibdecompressor',['ZLibDecompressor',['../classzlibcomplete_1_1ZLibDecompressor.html',1,'zlibcomplete']]],
+  ['zlibdecompressor',['ZLibDecompressor',['../classzlibcomplete_1_1ZLibDecompressor.html#a78d48d9ba76c69934cc1e96c4e0e8c36',1,'zlibcomplete::ZLibDecompressor']]],
+  ['zlibmisc_2ecpp',['zlibmisc.cpp',['../zlibmisc_8cpp.html',1,'']]],
+  ['zlibmisc_2ehpp',['zlibmisc.hpp',['../zlibmisc_8hpp.html',1,'']]],
+  ['zlibraw_2ehpp',['zlibraw.hpp',['../zlibraw_8hpp.html',1,'']]],
+  ['zlibtop_2ecpp',['zlibtop.cpp',['../zlibtop_8cpp.html',1,'']]]
 ];
