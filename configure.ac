@@ -1,7 +1,7 @@
 #                                               -*- Autoconf -*-
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ([2.69])
+AC_PREREQ([2.68])
 AC_INIT([zlibcomplete], [0.6.9], [cilibrar@alumni.caltech.edu])
 AM_INIT_AUTOMAKE
 LT_INIT
