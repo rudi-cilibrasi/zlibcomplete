@@ -9,9 +9,13 @@ C++ interface to the ZLib library supporting compression with FLUSH, decompressi
     make
     sudo make install
 
+# Documentation
+
+See [Full Documentation here](http://rudi-cilibrasi.github.io/zlibcomplete/)
+
 # Usage
 
-Then, use as follows to do gzip compression:
+Here is a simple example to do gzip compression:
 
     #include <iostream>
     #include <zlc/zlibcomplete.hpp>
