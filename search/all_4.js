@@ -1,5 +1,9 @@
 var searchData=
 [
-  ['finish',['finish',['../classzlibcomplete_1_1GZipCompressor.html#a0fd6b9b7d355cd6133a01f59fe276684',1,'zlibcomplete::GZipCompressor::finish()'],['../classzlibcomplete_1_1ZLibCompressor.html#aea73234b5dd83601e3452939bcdec5e5',1,'zlibcomplete::ZLibCompressor::finish()'],['../classzlibcomplete_1_1RawDeflater.html#af96634a7ea46580f955974d6ca9348db',1,'zlibcomplete::RawDeflater::finish()']]],
-  ['flush_5fparameter',['flush_parameter',['../namespacezlibcomplete.html#a14d24e53bbc87607af5aa8bd335930a7',1,'zlibcomplete']]]
+  ['gzipcomplete_2ecpp',['gzipcomplete.cpp',['../gzipcomplete_8cpp.html',1,'']]],
+  ['gzipcomplete_2ehpp',['gzipcomplete.hpp',['../gzipcomplete_8hpp.html',1,'']]],
+  ['gzipcompressor',['GZipCompressor',['../classzlibcomplete_1_1GZipCompressor.html#a5251e94e3a2b65a4a4bb82ad0b56abe6',1,'zlibcomplete::GZipCompressor']]],
+  ['gzipcompressor',['GZipCompressor',['../classzlibcomplete_1_1GZipCompressor.html',1,'zlibcomplete']]],
+  ['gzipdecompressor',['GZipDecompressor',['../classzlibcomplete_1_1GZipDecompressor.html',1,'zlibcomplete']]],
+  ['gzipdecompressor',['GZipDecompressor',['../classzlibcomplete_1_1GZipDecompressor.html#ac5dac4172de37b3352eed7d3da623e6a',1,'zlibcomplete::GZipDecompressor']]]
 ];

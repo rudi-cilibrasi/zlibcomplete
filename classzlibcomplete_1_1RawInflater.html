@@ -95,18 +95,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>Raw ZLib decompression class using std::string for input and output.  
+ <a href="classzlibcomplete_1_1RawInflater.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="zlibraw_8hpp_source.html">zlibraw.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for zlibcomplete::RawInflater:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="classzlibcomplete_1_1RawInflater.png" usemap="#zlibcomplete::RawInflater_map" alt=""/>
+  <map id="zlibcomplete::RawInflater_map" name="zlibcomplete::RawInflater_map">
+</map>
+ </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a130331bc6c3450db7f9de11e1fc64c80"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzlibcomplete_1_1RawInflater.html#a130331bc6c3450db7f9de11e1fc64c80">RawInflater</a> (int windowBits=15)</td></tr>
+<tr class="memdesc:a130331bc6c3450db7f9de11e1fc64c80"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a Raw ZLib decompressor.  <a href="#a130331bc6c3450db7f9de11e1fc64c80">More...</a><br/></td></tr>
 <tr class="separator:a130331bc6c3450db7f9de11e1fc64c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8e2b37398ceb6c7e9fddae8baf186399"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzlibcomplete_1_1RawInflater.html#a8e2b37398ceb6c7e9fddae8baf186399">~RawInflater</a> (void)</td></tr>
 <tr class="separator:a8e2b37398ceb6c7e9fddae8baf186399"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3636495c60ff6cece5d0b70682716aff"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzlibcomplete_1_1RawInflater.html#a3636495c60ff6cece5d0b70682716aff">inflate</a> (const std::string &amp;input)</td></tr>
 <tr class="separator:a3636495c60ff6cece5d0b70682716aff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Raw ZLib decompression class using std::string for input and output. </p>
+<p>Implements zlib decompression using std::string for input and output. To use, simply call decompress() zero or more times. Because the raw compressed stream has no header, it is necessary to ensure that the same window_bits parameter is used for the <a class="el" href="classzlibcomplete_1_1RawDeflater.html" title="Raw ZLib compression class using std::string for input and output. ">RawDeflater</a> and <a class="el" href="classzlibcomplete_1_1RawInflater.html" title="Raw ZLib decompression class using std::string for input and output. ">RawInflater</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a130331bc6c3450db7f9de11e1fc64c80"></a>
 <div class="memitem">
 <div class="memproto">
@@ -120,6 +135,15 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Constructs a Raw ZLib decompressor. </p>
+<p>Accepts a number of window_bits that must match that used with the <a class="el" href="classzlibcomplete_1_1RawDeflater.html" title="Raw ZLib compression class using std::string for input and output. ">RawDeflater</a>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">window_bits</td><td>An integer between 8 and 15 to control the window_size. Defaults to 15. This must match the window_bits used in the <a class="el" href="classzlibcomplete_1_1RawDeflater.html" title="Raw ZLib compression class using std::string for input and output. ">RawDeflater</a>. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -153,16 +177,30 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Accepts a std::string of any size containing compressed data. Returns as much zlib uncompressed data as possible. Call this function over and over with all the compressed data in a stream in order to decompress the entire stream. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Any amount of data to decompress. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">std::string</td><td>containing the decompressed data. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li>lib/zlc/<a class="el" href="zlibraw_8hpp_source.html">zlibraw.hpp</a></li>
+<li>lib/<a class="el" href="raw_8cpp.html">raw.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 7 2015 16:11:53 for zlibcomplete by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 8 2015 14:44:45 for zlibcomplete by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

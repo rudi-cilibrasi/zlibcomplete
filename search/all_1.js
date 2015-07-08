@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['basecompress',['baseCompress',['../classzlibcomplete_1_1ZLibBaseCompressor.html#a0f4cccfbd972e05926c53992b41d3c17',1,'zlibcomplete::ZLibBaseCompressor']]],
-  ['basedecompress',['baseDecompress',['../classzlibcomplete_1_1ZLibBaseDecompressor.html#a9f8316693d2bacd4e12cf062773149c8',1,'zlibcomplete::ZLibBaseDecompressor']]],
-  ['basefinish',['baseFinish',['../classzlibcomplete_1_1ZLibBaseCompressor.html#abd0d3c180eb7dca83ed25f21e93a774d',1,'zlibcomplete::ZLibBaseCompressor']]]
+  ['compress',['compress',['../classzlibcomplete_1_1GZipCompressor.html#a7b0f19e9b1c6341e401932ea601b07c4',1,'zlibcomplete::GZipCompressor::compress()'],['../classzlibcomplete_1_1ZLibCompressor.html#abbb2d285ae361239827770e7ed1f55b6',1,'zlibcomplete::ZLibCompressor::compress()']]],
+  ['config_2eh',['config.h',['../config_8h.html',1,'']]]
 ];

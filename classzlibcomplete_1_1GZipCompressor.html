@@ -95,6 +95,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div><!--header-->
 <div class="contents">
 
+<p>GZip compression class using std::string for input and output.  
+ <a href="classzlibcomplete_1_1GZipCompressor.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="gzipcomplete_8hpp_source.html">gzipcomplete.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for zlibcomplete::GZipCompressor:</div>
@@ -102,7 +105,6 @@ Inheritance diagram for zlibcomplete::GZipCompressor:</div>
  <div class="center">
   <img src="classzlibcomplete_1_1GZipCompressor.png" usemap="#zlibcomplete::GZipCompressor_map" alt=""/>
   <map id="zlibcomplete::GZipCompressor_map" name="zlibcomplete::GZipCompressor_map">
-<area href="classzlibcomplete_1_1ZLibBaseCompressor.html" alt="zlibcomplete::ZLibBaseCompressor" shape="rect" coords="0,0,209,24"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -111,23 +113,16 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a5251e94e3a2b65a4a4bb82ad0b56abe6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzlibcomplete_1_1GZipCompressor.html#a5251e94e3a2b65a4a4bb82ad0b56abe6">GZipCompressor</a> (int level=9, <a class="el" href="namespacezlibcomplete.html#a14d24e53bbc87607af5aa8bd335930a7">flush_parameter</a> autoFlush=<a class="el" href="namespacezlibcomplete.html#a14d24e53bbc87607af5aa8bd335930a7a26b912a74b8d07ced0d9e42b7094b5fe">auto_flush</a>, int windowBits=15)</td></tr>
 <tr class="separator:a5251e94e3a2b65a4a4bb82ad0b56abe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7b0f19e9b1c6341e401932ea601b07c4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzlibcomplete_1_1GZipCompressor.html#a7b0f19e9b1c6341e401932ea601b07c4">compress</a> (const std::string &amp;input)</td></tr>
+<tr class="memdesc:a7b0f19e9b1c6341e401932ea601b07c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">gzip compression main method using std::string for input and output.  <a href="#a7b0f19e9b1c6341e401932ea601b07c4">More...</a><br/></td></tr>
 <tr class="separator:a7b0f19e9b1c6341e401932ea601b07c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0fd6b9b7d355cd6133a01f59fe276684"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzlibcomplete_1_1GZipCompressor.html#a0fd6b9b7d355cd6133a01f59fe276684">finish</a> (void)</td></tr>
+<tr class="memdesc:a0fd6b9b7d355cd6133a01f59fe276684"><td class="mdescLeft">&#160;</td><td class="mdescRight">Writes a termination block to the gzip stream indicating the end.  <a href="#a0fd6b9b7d355cd6133a01f59fe276684">More...</a><br/></td></tr>
 <tr class="separator:a0fd6b9b7d355cd6133a01f59fe276684"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
-Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pro_methods_classzlibcomplete_1_1ZLibBaseCompressor"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_classzlibcomplete_1_1ZLibBaseCompressor')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="classzlibcomplete_1_1ZLibBaseCompressor.html">zlibcomplete::ZLibBaseCompressor</a></td></tr>
-<tr class="memitem:a57fba716f805877956e732c17c314343 inherit pro_methods_classzlibcomplete_1_1ZLibBaseCompressor"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzlibcomplete_1_1ZLibBaseCompressor.html#a57fba716f805877956e732c17c314343">ZLibBaseCompressor</a> (int level, <a class="el" href="namespacezlibcomplete.html#a14d24e53bbc87607af5aa8bd335930a7">flush_parameter</a> autoFlush, int windowBits)</td></tr>
-<tr class="separator:a57fba716f805877956e732c17c314343 inherit pro_methods_classzlibcomplete_1_1ZLibBaseCompressor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af661420306ad96b95a84e1fcd038d249 inherit pro_methods_classzlibcomplete_1_1ZLibBaseCompressor"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzlibcomplete_1_1ZLibBaseCompressor.html#af661420306ad96b95a84e1fcd038d249">~ZLibBaseCompressor</a> (void)</td></tr>
-<tr class="separator:af661420306ad96b95a84e1fcd038d249 inherit pro_methods_classzlibcomplete_1_1ZLibBaseCompressor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f4cccfbd972e05926c53992b41d3c17 inherit pro_methods_classzlibcomplete_1_1ZLibBaseCompressor"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzlibcomplete_1_1ZLibBaseCompressor.html#a0f4cccfbd972e05926c53992b41d3c17">baseCompress</a> (const std::string &amp;input)</td></tr>
-<tr class="separator:a0f4cccfbd972e05926c53992b41d3c17 inherit pro_methods_classzlibcomplete_1_1ZLibBaseCompressor"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abd0d3c180eb7dca83ed25f21e93a774d inherit pro_methods_classzlibcomplete_1_1ZLibBaseCompressor"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classzlibcomplete_1_1ZLibBaseCompressor.html#abd0d3c180eb7dca83ed25f21e93a774d">baseFinish</a> (void)</td></tr>
-<tr class="separator:abd0d3c180eb7dca83ed25f21e93a774d inherit pro_methods_classzlibcomplete_1_1ZLibBaseCompressor"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>GZip compression class using std::string for input and output. </p>
+<p>Implements gzip compression using std::string for input and output. To use, simply call <a class="el" href="classzlibcomplete_1_1GZipCompressor.html#a7b0f19e9b1c6341e401932ea601b07c4" title="gzip compression main method using std::string for input and output. ">compress()</a> zero or more times and then call <a class="el" href="classzlibcomplete_1_1GZipCompressor.html#a0fd6b9b7d355cd6133a01f59fe276684" title="Writes a termination block to the gzip stream indicating the end. ">finish()</a>. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a5251e94e3a2b65a4a4bb82ad0b56abe6"></a>
 <div class="memitem">
 <div class="memproto">
@@ -157,6 +152,15 @@ Additional Inherited Members</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Accepts the standard three parameters for compression constructors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">level</td><td>Compression level 1-9, defaulting to 9, the best compression. </td></tr>
+    <tr><td class="paramname">flush_parameter</td><td>Flush mode, either auto_flush or no_flush, defaulting to auto_flush mode. </td></tr>
+    <tr><td class="paramname">window_bits</td><td>Size of history window between 8 and 15, defaulting to 15. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -175,6 +179,21 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>gzip compression main method using std::string for input and output. </p>
+<p>Accepts a std::string of any size containing data to compress. Returns as much gzip compressed data as possible. In auto_flush mode, this will ensure that the returned data is immediately decompressible to the original data. In no_flush mode, the data may not all be available until the rest of the compressed data is written using more <a class="el" href="classzlibcomplete_1_1GZipCompressor.html#a7b0f19e9b1c6341e401932ea601b07c4" title="gzip compression main method using std::string for input and output. ">compress()</a> or a <a class="el" href="classzlibcomplete_1_1GZipCompressor.html#a0fd6b9b7d355cd6133a01f59fe276684" title="Writes a termination block to the gzip stream indicating the end. ">finish()</a> call. After calling <a class="el" href="classzlibcomplete_1_1GZipCompressor.html#a7b0f19e9b1c6341e401932ea601b07c4" title="gzip compression main method using std::string for input and output. ">compress()</a> zero or more times, it is necessary to call <a class="el" href="classzlibcomplete_1_1GZipCompressor.html#a0fd6b9b7d355cd6133a01f59fe276684" title="Writes a termination block to the gzip stream indicating the end. ">finish()</a> exactly once. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">input</td><td>Any amount of data to compress. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">std::string</td><td>containing compressed data. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a class="anchor" id="a0fd6b9b7d355cd6133a01f59fe276684"></a>
@@ -191,6 +210,15 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Writes a termination block to the gzip stream indicating the end. </p>
+<p>Flushes any remaining data that has not yet been written and then writes a terminal block to the compressed data stream. Returns this compressed data as a std::string. This function should be called exactly once for each compressed data stream. </p>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">std::string</td><td>containing the last piece of compressed data. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
@@ -200,7 +228,7 @@ Additional Inherited Members</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jul 7 2015 16:11:53 for zlibcomplete by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 8 2015 14:44:45 for zlibcomplete by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['finish',['finish',['../classzlibcomplete_1_1GZipCompressor.html#a0fd6b9b7d355cd6133a01f59fe276684',1,'zlibcomplete::GZipCompressor::finish()'],['../classzlibcomplete_1_1ZLibCompressor.html#aea73234b5dd83601e3452939bcdec5e5',1,'zlibcomplete::ZLibCompressor::finish()'],['../classzlibcomplete_1_1RawDeflater.html#af96634a7ea46580f955974d6ca9348db',1,'zlibcomplete::RawDeflater::finish()']]]
+  ['gzipcompressor',['GZipCompressor',['../classzlibcomplete_1_1GZipCompressor.html#a5251e94e3a2b65a4a4bb82ad0b56abe6',1,'zlibcomplete::GZipCompressor']]],
+  ['gzipdecompressor',['GZipDecompressor',['../classzlibcomplete_1_1GZipDecompressor.html#ac5dac4172de37b3352eed7d3da623e6a',1,'zlibcomplete::GZipDecompressor']]]
 ];
