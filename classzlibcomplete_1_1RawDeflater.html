@@ -123,7 +123,7 @@ Public Member Functions</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Raw ZLib compression class using std::string for input and output. </p>
-<p>Implements raw zlib compression using std::string for input and output. To use, simply call compress() zero or more times and then call <a class="el" href="classzlibcomplete_1_1RawDeflater.html#af96634a7ea46580f955974d6ca9348db" title="Writes a termination block to the raw zlib stream indicating the end. ">finish()</a>. This class does not write a header, so it is necessary to match up the window_bits parameter for the inflate and deflate methods. </p>
+<p>Implements raw zlib compression using std::string for input and output. To use, simply call compress() zero or more times and then call <a class="el" href="classzlibcomplete_1_1RawDeflater.html#af96634a7ea46580f955974d6ca9348db" title="Writes a termination block to the raw zlib stream indicating the end. ">finish()</a>. This class does not write a header, so it is necessary to match up the window_bits parameter for the inflate and deflate methods. This class implements <a href="https://www.ietf.org/rfc/rfc1951.txt">RFC 1951.</a> </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="a749213b4cb36c3371e51912d07e312eb"></a>
 <div class="memitem">
@@ -246,7 +246,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jul 8 2015 14:44:45 for zlibcomplete by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Wed Jul 8 2015 15:46:48 for zlibcomplete by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>
