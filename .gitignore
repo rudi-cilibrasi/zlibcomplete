@@ -10,6 +10,8 @@ examples/gzipsimple
 examples/ungzipsimple
 examples/zlibsimple
 examples/unzlibsimple
+examples/rawinflater
+examples/rawdeflater
 */.deps
 */stamp-h1
 aclocal.m4

@@ -3,8 +3,25 @@
 require 'tempfile'
 require 'fileutils'
 
+def runzclraw(str, level)
+  temp = Tempfile.new('zcl')
+  file = temp.path
+  rawc = File.join(EXAMPLEDIR, 'rawdeflater')
+  rawd = File.join(EXAMPLEDIR, 'rawinflater')
+  IO.popen("#{rawc} #{level} | #{rawd} #{level} >#{file}", "wb") do |p|
+    p.write(str)
+    p.close_write
+  end
+  result = File.read(file)
+  FileUtils.rm(file)
+  unless result == str
+    raise "String of length #{str.size} broke raw zlib compression level=#{level}"
+  end
+end
+
 def runzclzlib(str)
-  file = Tempfile.new('zcl').path
+  temp = Tempfile.new('zcl')
+  file = temp.path
   gzcc = File.join(EXAMPLEDIR, 'zlibsimple')
   gzcd = File.join(EXAMPLEDIR, 'unzlibsimple')
   IO.popen("#{gzcc} | #{gzcd} >#{file}", "wb") do |p|
@@ -19,21 +36,22 @@ def runzclzlib(str)
 end
 
 def runsysgzipzcl(str, gzipoption, zclcommand)
-  file = Tempfile.new('zcl').path
+  temp = Tempfile.new('zcl')
+  file = temp.path
   gzc = File.join(EXAMPLEDIR, zclcommand)
   IO.popen("gzip #{gzipoption} | #{gzc} >#{file}", "wb") do |p|
     p.write(str)
     p.close_write
   end
   result = File.read(file)
-  FileUtils.rm(file)
   unless result == str
     raise "String of length #{str.size} broke #{zclcommand}"
   end
 end
 
 def runzclsysgzip(str, gzipoption, zclcommand)
-  file = Tempfile.new('zcl').path
+  temp = Tempfile.new('zcl')
+  file = temp.path
   gzc = File.join(EXAMPLEDIR, zclcommand)
   IO.popen("#{gzc} | gzip #{gzipoption} >#{file}", "wb") do |p|
     p.write(str)
@@ -65,6 +83,8 @@ def runtests()
     runzclsysgzip(str, '-d', 'gzipsimple')
     runsysgzipzcl(str, '-c', 'ungzipsimple')
     runzclzlib(str)
+    window_bits = ((pow + 3) % 7) + 8
+    runzclraw(str, window_bits)
   end
 end
 
