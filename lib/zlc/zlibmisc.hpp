@@ -21,6 +21,8 @@ namespace zlibcomplete {
   *
   * Implements zlib compression using std::string for input and output.
   * To use, simply call compress() zero or more times and then call finish().
+  * This class implements
+  * <a href="https://www.ietf.org/rfc/rfc1950.txt">RFC 1950.</a>
   */
   class ZLibCompressor : public ZLibBaseCompressor {
 public:
@@ -65,6 +67,8 @@ public:
   *
   * Implements zlib decompression using std::string for input and output.
   * To use, simply call decompress() zero or more times.
+  * This class implements
+  * <a href="https://www.ietf.org/rfc/rfc1950.txt">RFC 1950.</a>
   */
   class ZLibDecompressor : public ZLibBaseDecompressor {
 public:

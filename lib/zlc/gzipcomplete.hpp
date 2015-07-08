@@ -23,6 +23,8 @@ namespace zlibcomplete {
   *
   * Implements gzip compression using std::string for input and output.
   * To use, simply call compress() zero or more times and then call finish().
+  * This class implements
+  * <a href="https://www.ietf.org/rfc/rfc1952.txt">RFC 1952.</a>
   */
   class GZipCompressor : public ZLibBaseCompressor {
 public:
@@ -66,6 +68,8 @@ public:
   *
   * Implements gzip decompression using std::string for input and output.
   * To use, simply call decompress() zero or more times.
+  * This class implements
+  * <a href="https://www.ietf.org/rfc/rfc1952.txt">RFC 1952.</a>
   */
   class GZipDecompressor : public ZLibBaseDecompressor {
 public:

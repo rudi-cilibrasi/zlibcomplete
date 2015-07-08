@@ -23,6 +23,8 @@ namespace zlibcomplete {
   * To use, simply call compress() zero or more times and then call finish().
   * This class does not write a header, so it is necessary to match up the
   * window_bits parameter for the inflate and deflate methods.
+  * This class implements
+  * <a href="https://www.ietf.org/rfc/rfc1951.txt">RFC 1951.</a>
   */
   class RawDeflater : public ZLibBaseCompressor {
 public:
@@ -70,6 +72,8 @@ public:
   * To use, simply call decompress() zero or more times.  Because the raw
   * compressed stream has no header, it is necessary to ensure that the same
   * window_bits parameter is used for the RawDeflater and RawInflater.
+  * This class implements
+  * <a href="https://www.ietf.org/rfc/rfc1951.txt">RFC 1951.</a>
   */
   class RawInflater : public ZLibBaseDecompressor {
 public:
