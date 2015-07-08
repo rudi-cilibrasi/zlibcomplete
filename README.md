@@ -15,6 +15,13 @@ See [Full Documentation here](http://rudi-cilibrasi.github.io/zlibcomplete/)
 
 # Usage
 
+To use the library it is sufficient to include the header file in your
+C++ source code and add the
+
+    -lzlibcomplete
+
+option to your linker flags.
+
 Here is a simple example to do gzip compression:
 
     #include <iostream>
