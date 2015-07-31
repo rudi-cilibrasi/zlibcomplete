@@ -6,8 +6,6 @@
 using namespace zlibcomplete;
 using namespace std;
 
-// Thanks to DeLadoss for finding this bug and providing a fix.
-
 void runBigChunkTest(void) {
   const int chunkTestSize = 100000;
   std::string str;
