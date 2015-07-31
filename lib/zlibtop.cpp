@@ -34,16 +34,17 @@ std::string ZLibBaseCompressor::baseCompress(const std::string& input) {
   }
   for (i = 0; i < input.length(); i += ZLIB_COMPLETE_CHUNK) {
     int howManyLeft = input.length() - i;
+    bool isLastRound = (howManyLeft <= ZLIB_COMPLETE_CHUNK);
     int howManyWanted = (howManyLeft > ZLIB_COMPLETE_CHUNK) ?
                            ZLIB_COMPLETE_CHUNK : howManyLeft;
-    memcpy(in_, input.data(), howManyWanted);
+    memcpy(in_, input.data()+i, howManyWanted);
     strm_.avail_in = howManyWanted;
     strm_.next_in = (Bytef *) in_;
     do {
       int have;
       strm_.avail_out = ZLIB_COMPLETE_CHUNK;
       strm_.next_out = (Bytef *) out_;
-      retval = deflate(&strm_, autoFlush_ ? Z_SYNC_FLUSH : Z_NO_FLUSH);
+      retval = deflate(&strm_, (autoFlush_ && isLastRound) ? Z_SYNC_FLUSH : Z_NO_FLUSH);
       if (retval == Z_STREAM_ERROR) {
         throw std::bad_alloc();
       }
@@ -104,7 +105,7 @@ std::string ZLibBaseDecompressor::baseDecompress(const std::string& input) {
     int howManyLeft = input.length() - i;
     int howManyWanted = (howManyLeft > ZLIB_COMPLETE_CHUNK) ?
                            ZLIB_COMPLETE_CHUNK : howManyLeft;
-    memcpy(in_, input.data(), howManyWanted);
+    memcpy(in_, input.data()+i, howManyWanted);
     strm_.avail_in = howManyWanted;
     strm_.next_in = (Bytef *) in_;
     if (strm_.avail_in == 0) {
