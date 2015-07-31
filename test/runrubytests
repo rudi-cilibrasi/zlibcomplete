@@ -1,0 +1,97 @@
+#!/usr/bin/env ruby
+
+require 'tempfile'
+require 'fileutils'
+
+def runzclraw(str, level)
+  temp = Tempfile.new('zcl')
+  file = temp.path
+  rawc = File.join(EXAMPLEDIR, 'rawdeflater')
+  rawd = File.join(EXAMPLEDIR, 'rawinflater')
+  IO.popen("#{rawc} #{level} | #{rawd} #{level} >#{file}", "wb") do |p|
+    p.write(str)
+    p.close_write
+  end
+  result = File.read(file)
+  FileUtils.rm(file)
+  unless result == str
+    raise "String of length #{str.size} broke raw zlib compression level=#{level}"
+  end
+end
+
+def runzclzlib(str)
+  temp = Tempfile.new('zcl')
+  file = temp.path
+  gzcc = File.join(EXAMPLEDIR, 'zlibsimple')
+  gzcd = File.join(EXAMPLEDIR, 'unzlibsimple')
+  IO.popen("#{gzcc} | #{gzcd} >#{file}", "wb") do |p|
+    p.write(str)
+    p.close_write
+  end
+  result = File.read(file)
+  FileUtils.rm(file)
+  unless result == str
+    raise "String of length #{str.size} broke zlib compression"
+  end
+end
+
+def runsysgzipzcl(str, gzipoption, zclcommand)
+  temp = Tempfile.new('zcl')
+  file = temp.path
+  gzc = File.join(EXAMPLEDIR, zclcommand)
+  IO.popen("gzip #{gzipoption} | #{gzc} >#{file}", "wb") do |p|
+    p.write(str)
+    p.close_write
+  end
+  result = File.read(file)
+  unless result == str
+    raise "String of length #{str.size} broke #{zclcommand}"
+  end
+end
+
+def runzclsysgzip(str, gzipoption, zclcommand)
+  temp = Tempfile.new('zcl')
+  file = temp.path
+  gzc = File.join(EXAMPLEDIR, zclcommand)
+  IO.popen("#{gzc} | gzip #{gzipoption} >#{file}", "wb") do |p|
+    p.write(str)
+    p.close_write
+  end
+  result = File.read(file)
+  FileUtils.rm(file)
+  unless result == str
+    raise "String of length #{str.size} broke #{zclcommand}"
+  end
+end
+
+def makeStringOfSizeAtLeast(n)
+  str = ''
+  i = 0
+  step = 0
+  while str.size < n
+    str += "#{i} "
+    i += step
+    step += 1
+  end
+  str
+end
+
+def runtests()
+  20.times do | pow |
+    len = 2 ** pow
+    str = makeStringOfSizeAtLeast(len-1)
+    runzclsysgzip(str, '-d', 'gzipsimple')
+    runsysgzipzcl(str, '-c', 'ungzipsimple')
+    runzclzlib(str)
+    window_bits = ((pow + 3) % 7) + 8
+    runzclraw(str, window_bits)
+  end
+end
+
+TOPDIR=File.expand_path('../..', __FILE__)
+EXAMPLEDIR=File.join(TOPDIR, 'examples')
+unless File.exist?(File.join(EXAMPLEDIR, 'gzipsimple'))
+  system("make -C #{EXAMPLEDIR}")
+end
+
+runtests

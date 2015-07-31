@@ -36,7 +36,7 @@ std::string ZLibBaseCompressor::baseCompress(const std::string& input) {
     int howManyLeft = input.length() - i;
     int howManyWanted = (howManyLeft > ZLIB_COMPLETE_CHUNK) ?
                            ZLIB_COMPLETE_CHUNK : howManyLeft;
-    memcpy(in_, input.data(), howManyWanted);
+    memcpy(in_, input.data()+i, howManyWanted);
     strm_.avail_in = howManyWanted;
     strm_.next_in = (Bytef *) in_;
     do {
@@ -104,7 +104,7 @@ std::string ZLibBaseDecompressor::baseDecompress(const std::string& input) {
     int howManyLeft = input.length() - i;
     int howManyWanted = (howManyLeft > ZLIB_COMPLETE_CHUNK) ?
                            ZLIB_COMPLETE_CHUNK : howManyLeft;
-    memcpy(in_, input.data(), howManyWanted);
+    memcpy(in_, input.data()+i, howManyWanted);
     strm_.avail_in = howManyWanted;
     strm_.next_in = (Bytef *) in_;
     if (strm_.avail_in == 0) {
