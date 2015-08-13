@@ -66,14 +66,16 @@ std::string ZLibBaseCompressor::baseFinish(void) {
   finished_ = true;
   strm_.avail_in = 0;
   strm_.next_in = (Bytef *) in_;
-  strm_.avail_out = ZLIB_COMPLETE_CHUNK;
-  strm_.next_out = (Bytef *) out_;
-  retval = deflate(&strm_, Z_FINISH);
-  if (retval == Z_STREAM_ERROR) {
-    throw std::bad_alloc();
-  }
-  have = ZLIB_COMPLETE_CHUNK - strm_.avail_out;
-  result += std::string(out_, have);
+  do {
+    strm_.avail_out = ZLIB_COMPLETE_CHUNK;
+    strm_.next_out = (Bytef *) out_;
+    retval = deflate(&strm_, Z_FINISH);
+    if (retval == Z_STREAM_ERROR) {
+      throw std::bad_alloc();
+    }
+    have = ZLIB_COMPLETE_CHUNK - strm_.avail_out;
+    result += std::string(out_, have);
+  } while (strm_.avail_out == 0);
   return result;
 }
 
