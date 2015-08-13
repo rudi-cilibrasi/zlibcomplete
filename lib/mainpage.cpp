@@ -9,7 +9,10 @@
  * library uses RAII (Resource Allocation Is Initialization) in order to
  * obviate explicit allocation or deallocation.  The result is an easier to
  * use and simpler, less error-prone interface to the underlying zlib
-   functionality.
+ * functionality.
+
+   \section download_sec Download
+   <a href="downloads/zlibcomplete-1.0.4.tar.gz">zlibcomplete-1.0.4.tar.gz</a>
 
    \section install_sec Installation
 

@@ -1,6 +1,12 @@
 # zlibcomplete
 C++ interface to the ZLib library supporting compression with FLUSH, decompression, and std::string. RAII
 
+# Download
+
+[zlibcomplete-1.0.4.tar.gz](http://rudi-cilibrasi.github.io/zlibcomplete/downloads/zlibcomplete-1.0.4.tar.gz)
+
+See [Full Documentation here](http://rudi-cilibrasi.github.io/zlibcomplete/)
+
 # Building
 
     ./bootstrap.sh
