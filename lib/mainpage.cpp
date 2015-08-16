@@ -91,6 +91,15 @@ Decompression is similar:
 
 </PRE>
 
+   \section github_project_sec Project and Community
+
+<p>We are hosted on GitHub.  Here is our <a href="https://github.com/rudi-cilibrasi/zlibcomplete">GitHub Project Page</a>
+<p>
+Want to contribute a patch, suggest a feature, or report a bug?
+   <a href="https://github.com/rudi-cilibrasi/zlibcomplete/issues">Issue Tracker</a>
+
+
+
 <PRE>
 
 </PRE>
