@@ -3,6 +3,7 @@
 #include <zlib.h>
 #include <string.h>
 #include <iostream>
+#include <stdint.h>
 
 namespace zlibcomplete {
 
@@ -10,6 +11,7 @@ ZLibBaseCompressor::ZLibBaseCompressor(int level, flush_parameter autoFlush,
                                        int windowBits) {
   int retval;
   finished_ = false;
+  autoFlush_ = autoFlush;
   strm_.zalloc = Z_NULL;
   strm_.zfree = Z_NULL;
   strm_.opaque = Z_NULL;
@@ -25,14 +27,13 @@ ZLibBaseCompressor::ZLibBaseCompressor(int level, flush_parameter autoFlush,
 }
 
 std::string ZLibBaseCompressor::baseCompress(const std::string& input) {
-  int i;
   std::string result;
   int retval;
   if (finished_) {
     std::cerr << "Cannot compress data after calling finish.\n";
     throw std::exception();
   }
-  for (i = 0; i < input.length(); i += ZLIB_COMPLETE_CHUNK) {
+  for (uint32_t i = 0; i < input.length(); i += ZLIB_COMPLETE_CHUNK) {
     int howManyLeft = input.length() - i;
     bool isLastRound = (howManyLeft <= ZLIB_COMPLETE_CHUNK);
     int howManyWanted = (howManyLeft > ZLIB_COMPLETE_CHUNK) ?
@@ -103,7 +104,7 @@ ZLibBaseDecompressor::~ZLibBaseDecompressor(void) {
 std::string ZLibBaseDecompressor::baseDecompress(const std::string& input) {
   int retval;
   std::string result;
-  for (int i = 0; i < input.length(); i += ZLIB_COMPLETE_CHUNK) {
+  for (uint32_t i = 0; i < input.length(); i += ZLIB_COMPLETE_CHUNK) {
     int howManyLeft = input.length() - i;
     int howManyWanted = (howManyLeft > ZLIB_COMPLETE_CHUNK) ?
                            ZLIB_COMPLETE_CHUNK : howManyLeft;
