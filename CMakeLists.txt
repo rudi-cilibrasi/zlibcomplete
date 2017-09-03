@@ -61,7 +61,7 @@ if(ZLIBCOMPLETE_DOCS)
                       WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
                       COMMENT "Generating HTML API documentation using Doxygen"
                       SOURCES ${PROJECT_SOURCE_DIR}/Doxyfile
-                      BYPRODUCTS ${PROJECT_BINARY_DIR}/docs 
+                      BYPRODUCTS ${PROJECT_BINARY_DIR}/docs
                       VERBATIM
                       )
 
@@ -90,7 +90,7 @@ target_compile_options(zlibcomplete PRIVATE ${WARNING_FLAGS})
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/zlibcomplete
         DESTINATION include
-        FILES_MATCHING PATTERN "*.hpp")
+        FILES_MATCHING PATTERN "*.h")
 install(TARGETS zlibcomplete
         ARCHIVE DESTINATION lib
         LIBRARY DESTINATION lib)
@@ -100,4 +100,3 @@ option(ZLIBCOMPLETE_EXAMPLES "Build examples." OFF)
 if(ZLIBCOMPLETE_EXAMPLES)
     add_subdirectory(${PROJECT_SOURCE_DIR}/examples)
 endif()
-
