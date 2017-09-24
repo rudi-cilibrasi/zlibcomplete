@@ -5,11 +5,10 @@ dependencies:
         - sudo apt-get remove g++-4.6 gcc-4.6
         - sudo apt-get install gcc-4.8 g++-4.8
         - sudo apt-get remove -y texlive-base
-        - sudo apt-get install autoconf automake build-essential zlib1g-dev
+        - sudo apt-get install cmake build-essential zlib1g-dev
 test:
     pre:
-        - ./bootstrap.sh
-        - ./configure
+        - cmake .
         - make
     override:
         - ./test/runtests
