@@ -86,17 +86,15 @@ install(TARGETS zlibcomplete
 option(ZLIBCOMPLETE_EXAMPLES "Build examples" ON)
 
 if(ZLIBCOMPLETE_EXAMPLES)
-    add_executable(gzipsimple ${ZLIBCOMPLETE_SOURCE_DIR}/examples/gzipsimple.cpp)
-    target_link_libraries(gzipsimple zlibcomplete)
-    add_executable(ungzipsimple ${ZLIBCOMPLETE_SOURCE_DIR}/examples/ungzipsimple.cpp)
-    target_link_libraries(ungzipsimple zlibcomplete)
-    add_executable(rawdeflater ${ZLIBCOMPLETE_SOURCE_DIR}/examples/rawdeflater.cpp)
-    target_link_libraries(rawdeflater zlibcomplete)
-    add_executable(zlibsimple ${ZLIBCOMPLETE_SOURCE_DIR}/examples/zlibsimple.cpp)
-    target_link_libraries(zlibsimple zlibcomplete)
-    add_executable(rawinflater ${ZLIBCOMPLETE_SOURCE_DIR}/examples/rawinflater.cpp)
-    target_link_libraries(rawinflater zlibcomplete)
-    add_executable(unzlibsimple ${ZLIBCOMPLETE_SOURCE_DIR}/examples/unzlibsimple.cpp)
-    target_link_libraries(unzlibsimple zlibcomplete)
+    file(GLOB EXAMPLES
+         LIST_DIRECTORIES FALSE
+         ${HEXICORD_SOURCE_DIR}/examples/*.cpp)
+
+    foreach(example_file ${EXAMPLES})
+        message(STATUS "Building example: ${example}")
+        get_filename_component(example ${example_file} NAME_WE)
+        add_executable(${example} ${example_file})
+        target_link_libraries(${example} zlibcomplete)
+    endforeach()    
 endif()
 
