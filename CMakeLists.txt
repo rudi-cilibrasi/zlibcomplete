@@ -22,8 +22,7 @@ if(("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang") OR
                 -Woverloaded-virtual -Wredundant-decls -Wshadow
                 -Wsign-conversion -Wsign-promo -Wstrict-overflow=5 -Wswitch
                 -Wundef -Wno-unused -Wnon-virtual-dtor -Wreorder -Wdeprecated
-                -Wno-float-equal
-                )
+                -Wno-float-equal)
     endif()
     if(ZLIBCOMPLETE_WERROR)
         set(WARNING_FLAGS ${WARNING_FLAGS} -Werror)
@@ -49,7 +48,7 @@ if(ZLIBCOMPLETE_DOCS)
 
     add_custom_target(doc ALL
                       DEPENDS ${ZLIBCOMPLETE_SOURCES} ${ZLIBCOMPLETE_SOURCE_DIR}/Doxyfile)
-    
+
     install(DIRECTORY ${ZLIBCOMPLETE_BINARY_DIR}/docs/ DESTINATION share/doc/zlibcomplete)
 endif()
 
