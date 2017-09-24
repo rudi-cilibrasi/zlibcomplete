@@ -1,9 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
 
-# Better behavior of VS generator.
-set_property(GLOBAL PROPERTY USE_FOLDERS ON)
-set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER "CMake")
-
 project(ZLIBCOMPLETE)
 
 # Generate compilation database for YouCompleteMe and stuff like clang-tidy.
@@ -49,17 +45,17 @@ if(ZLIBCOMPLETE_DOCS)
                        COMMAND ${DOXYGEN_EXECUTABLE} ${ZLIBCOMPLETE_BINARY_DIR}/Doxyfile
                        WORKING_DIRECTORY ${ZLIBCOMPLETE_BINARY_DIR}
                        COMMENT "Generating HTML API documentation using Doxygen"
-                       VERBATIM
-                      )
+                       VERBATIM)
 
     add_custom_target(doc ALL
-                      DEPENDS ${ZLIBCOMPLETE_SOURCES} ${ZLIBCOMPLETE_SOURCE_DIR}/Doxyfile
-                     )
+                      DEPENDS ${ZLIBCOMPLETE_SOURCES} ${ZLIBCOMPLETE_SOURCE_DIR}/Doxyfile)
     
-                  install(DIRECTORY ${ZLIBCOMPLETE_BINARY_DIR}/docs/ DESTINATION share/doc/zlibcomplete)
+    install(DIRECTORY ${ZLIBCOMPLETE_BINARY_DIR}/docs/ DESTINATION share/doc/zlibcomplete)
 endif()
 
 # Library itself
+
+find_package(ZLIB REQUIRED)
 
 option(ZLIBCOMPLETE_STATIC "Build static library." ON )
 option(ZLIBCOMPLETE_SHARED "Build shared library." OFF)
@@ -75,19 +71,33 @@ if(ZLIBCOMPLETE_SHARED)
     add_library(zlibcomplete SHARED ${ZLIBCOMPLETE_HEADERS} ${ZLIBCOMPLETE_SOURCES})
 endif()
 
-target_link_libraries(zlibcomplete PUBLIC ${ZLIBCOMPLETE_DEPENDENCIES})
-target_include_directories(zlibcomplete PUBLIC ${PROJECT_SOURCE_DIR}/lib)
+target_link_libraries(zlibcomplete PUBLIC ${ZLIB_LIBRARIES})
+target_include_directories(zlibcomplete PUBLIC ${PROJECT_SOURCE_DIR}/lib ${ZLIB_INCLUDE_DIR})
 target_compile_options(zlibcomplete PRIVATE ${WARNING_FLAGS})
 
 install(DIRECTORY ${CMAKE_SOURCE_DIR}/src/zlibcomplete
         DESTINATION include
-        FILES_MATCHING PATTERN "*.h")
+        FILES_MATCHING PATTERN "*.h"
+       )
 install(TARGETS zlibcomplete
         ARCHIVE DESTINATION lib
-        LIBRARY DESTINATION lib)
+        LIBRARY DESTINATION lib
+       )
 
-option(ZLIBCOMPLETE_EXAMPLES "Build examples." OFF)
+option(ZLIBCOMPLETE_EXAMPLES "Build examples" ON)
 
 if(ZLIBCOMPLETE_EXAMPLES)
-    add_subdirectory(${PROJECT_SOURCE_DIR}/examples)
+    add_executable(gzipsimple ${ZLIBCOMPLETE_SOURCE_DIR}/examples/gzipsimple.cpp)
+    target_link_libraries(gzipsimple zlibcomplete)
+    add_executable(ungzipsimple ${ZLIBCOMPLETE_SOURCE_DIR}/examples/ungzipsimple.cpp)
+    target_link_libraries(ungzipsimple zlibcomplete)
+    add_executable(rawdeflater ${ZLIBCOMPLETE_SOURCE_DIR}/examples/rawdeflater.cpp)
+    target_link_libraries(rawdeflater zlibcomplete)
+    add_executable(zlibsimple ${ZLIBCOMPLETE_SOURCE_DIR}/examples/zlibsimple.cpp)
+    target_link_libraries(zlibsimple zlibcomplete)
+    add_executable(rawinflater ${ZLIBCOMPLETE_SOURCE_DIR}/examples/rawinflater.cpp)
+    target_link_libraries(rawinflater zlibcomplete)
+    add_executable(unzlibsimple ${ZLIBCOMPLETE_SOURCE_DIR}/examples/unzlibsimple.cpp)
+    target_link_libraries(unzlibsimple zlibcomplete)
 endif()
+
