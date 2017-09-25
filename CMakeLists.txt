@@ -31,27 +31,6 @@ else()
     message(WARNING "Using WERROR/WSTRICT with non-GCC like compiler is not supported. Ignoring.")
 endif()
 
-# Documentation (Doxygen)
-
-find_package(Doxygen)
-option(ZLIBCOMPLETE_DOCS    "Generate HTML documentation (Doxygen)"    ${DOXYGEN_FOUND})
-if(ZLIBCOMPLETE_DOCS)
-    if (NOT DOXYGEN_FOUND)
-        message(FATAL_ERROR "Doxygen is required to build documentation.")
-    endif()
-
-    add_custom_command(OUTPUT ${ZLIBCOMPLETE_BINARY_DIR}/doc
-                       COMMAND ${DOXYGEN_EXECUTABLE} ${ZLIBCOMPLETE_BINARY_DIR}/Doxyfile
-                       WORKING_DIRECTORY ${ZLIBCOMPLETE_BINARY_DIR}
-                       COMMENT "Generating HTML API documentation using Doxygen"
-                       VERBATIM)
-
-    add_custom_target(doc ALL
-                      DEPENDS ${ZLIBCOMPLETE_SOURCES} ${ZLIBCOMPLETE_SOURCE_DIR}/Doxyfile)
-
-    install(DIRECTORY ${ZLIBCOMPLETE_BINARY_DIR}/docs/ DESTINATION share/doc/zlibcomplete)
-endif()
-
 # Library itself
 
 find_package(ZLIB REQUIRED)
@@ -82,6 +61,35 @@ install(TARGETS zlibcomplete
         ARCHIVE DESTINATION lib
         LIBRARY DESTINATION lib
        )
+
+# Documentation (Doxygen)
+
+find_package(Doxygen)
+option(ZLIBCOMPLETE_DOCS    "Generate HTML documentation (Doxygen)"    ${DOXYGEN_FOUND})
+if(ZLIBCOMPLETE_DOCS)
+    if (NOT DOXYGEN_FOUND)
+        message(FATAL_ERROR "Doxygen is required to build documentation.")
+    endif()
+
+    set(DOCS_OUTPUT_DIR ${ZLIBCOMPLETE_BINARY_DIR}/doc)
+    configure_file(${ZLIBCOMPLETE_SOURCE_DIR}/Doxyfile.in ${ZLIBCOMPLETE_BINARY_DIR}/Doxyfile @ONLY)
+
+    add_custom_command(OUTPUT ${DOCS_OUTPUT_DIR}
+                       COMMAND ${DOXYGEN_EXECUTABLE} ${ZLIBCOMPLETE_BINARY_DIR}/Doxyfile
+                       WORKING_DIRECTORY ${ZLIBCOMPLETE_BINARY_DIR}
+                       DEPENDS ${ZLIBCOMPLETE_HEADERS} ${ZLIBCOMPLETE_SOURCES} ${ZLIBCOMPLETE_SOURCE_DIR}/Doxyfile.in
+                       COMMENT "Generating HTML API documentation using Doxygen"
+                       VERBATIM)
+
+    set_source_files_properties(${DOCS_OUTPUT_DIR} PROPERTIES GENERATED 1)
+
+    add_custom_target(docs ALL
+                      DEPENDS ${DOCS_OUTPUT_DIR})
+
+    install(DIRECTORY ${ZLIBCOMPLETE_BINARY_DIR}/docs/ DESTINATION share/doc/zlibcomplete)
+endif()
+
+# Examples
 
 option(ZLIBCOMPLETE_EXAMPLES "Build examples" ON)
 
