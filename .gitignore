@@ -1,37 +1,67 @@
-*.o
-*.lo
-*.la
-*.in
-*.swp
+### CMake ###
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
 Makefile
+cmake_install.cmake
+install_manifest.txt
+compile_commands.json
+CMakeDoxyfile.in
+CMakeDoxygenDefaults.cmake
+Doxyfile
+doc/
+build
+
+### C++ ###
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+### Linux ###
 *~
-lib/config.h
-examples/gzipsimple
-examples/ungzipsimple
-examples/zlibsimple
-examples/unzlibsimple
-examples/rawinflater
-examples/rawdeflater
-*/.deps
-*/stamp-h1
-aclocal.m4
-autom4te.cache/
-compile
-config.guess
-config.log
-config.status
-config.sub
-configure
-depcomp
-install-sh
-libtool
-ltmain.sh
-m4/libtool.m4
-m4/ltoptions.m4
-m4/ltsugar.m4
-m4/ltversion.m4
-m4/lt~obsolete.m4
-missing
-.libs
-doc/html/
-doc/latex/
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
+### Ninja ###
+.ninja_deps
+.ninja_log
+*.ninja
+
+### Vim ###
+# swap
+[._]*.s[a-v][a-z]
+[._]*.sw[a-p]
+[._]s[a-v][a-z]
+[._]sw[a-p]
+# session
+Session.vim
+# temporary
+.netrwhist
+
+### Windows ###
+# Folder config file
+Desktop.ini
+
