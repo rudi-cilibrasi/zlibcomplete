@@ -96,7 +96,7 @@ option(ZLIBCOMPLETE_EXAMPLES "Build examples" ON)
 if(ZLIBCOMPLETE_EXAMPLES)
     file(GLOB EXAMPLES
          LIST_DIRECTORIES FALSE
-         ${HEXICORD_SOURCE_DIR}/examples/*.cpp)
+         ${ZLIBCOMPLETE_SOURCE_DIR}/examples/*.cpp)
 
     foreach(example_file ${EXAMPLES})
         message(STATUS "Building example: ${example}")

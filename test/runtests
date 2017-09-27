@@ -2,5 +2,6 @@
 set -e
 cd $(dirname $0)
 ./runrubytests
+cd ..
 ./cppzltest
 exit 0

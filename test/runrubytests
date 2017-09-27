@@ -89,7 +89,7 @@ def runtests()
 end
 
 TOPDIR=File.expand_path('../..', __FILE__)
-EXAMPLEDIR=File.join(TOPDIR, 'examples')
+EXAMPLEDIR=TOPDIR
 unless File.exist?(File.join(EXAMPLEDIR, 'gzipsimple'))
   system("make -C #{EXAMPLEDIR}")
 end
