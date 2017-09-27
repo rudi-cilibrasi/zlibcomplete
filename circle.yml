@@ -1,14 +1,42 @@
+machine:
+  timezone:
+    US/Pacific
+  environment:
+    PATH: "/home/ubuntu/cmake-3.6.2-Linux-x86_64/bin:$PATH"
 dependencies:
-    pre:
-        - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
-        - sudo apt-get update
-        - sudo apt-get remove g++-4.6 gcc-4.6
-        - sudo apt-get install gcc-4.8 g++-4.8
-        - sudo apt-get remove -y texlive-base
-        - sudo apt-get install cmake build-essential zlib1g-dev
+  cache_directories:
+    - ~/cmake-3.6.2-Linux-x86_64
+  override:
+    - >
+      if [ ! -f ~/cmake-3.6.2-Linux-x86_64/bin/cmake ]; then
+        echo "No cache - building CMake"
+        pwd
+        cd ~
+        pwd
+        echo "CD'd"
+        ls -l
+        wget --no-check-certificate https://cmake.org/files/v3.6/cmake-3.6.2-Linux-x86_64.tar.gz
+        ls -l
+        echo "wget'd"
+        pwd
+        ls -l
+        tar -xvf cmake-3.6.2-Linux-x86_64.tar.gz
+        pwd
+        echo "tar'd"
+      else
+        echo "Cached CMake found"
+      fi
+  pre:
+    - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test
+    - sudo apt-get update
+    - sudo apt-get remove g++-4.6 gcc-4.6 cmake
+    - sudo apt-get install gcc-4.8 g++-4.8
+    - sudo apt-get remove -y texlive-base
+    - sudo apt-get install build-essential zlib1g-dev
 test:
-    pre:
-        - cmake .
-        - make
-    override:
-        - ./test/runtests
+  pre:
+    - cmake .
+    - make
+  override:
+    - ./test/runtests
+
