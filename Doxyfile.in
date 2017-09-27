@@ -1,8 +1,9 @@
+DOXYFILE_ENCODING = UTF-8
 PROJECT_NAME = zlibcomplete
 PROJECT_BRIEF = "Simple C++ wrapper for zlib using RAII and std::string with flush."
-OUTPUT_DIRECTORY = doc
+OUTPUT_DIRECTORY = @DOCS_OUTPUT_DIR@
 EXTRACT_ALL = yes
 EXCLUDE_SYMBOLS = zlibcomplete::ZLibBaseCompressor zlibcomplete::ZLibBaseDecompressor
 
-INPUT = lib
+INPUT = @ZLIBCOMPLETE_SOURCE_DIR@/lib
 RECURSIVE = yes

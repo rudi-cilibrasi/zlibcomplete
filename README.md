@@ -6,16 +6,21 @@ C++ interface to the ZLib library supporting compression with FLUSH, decompressi
 [zlibcomplete-1.0.4.tar.gz](http://rudi-cilibrasi.github.io/zlibcomplete/downloads/zlibcomplete-1.0.4.tar.gz)
 
 # Building
-
-    ./bootstrap.sh
-    autoreconf
-    ./configure
+    
+    cmake .
     make
     sudo make install
 
 # Documentation
 
-See [Full Documentation here](http://rudi-cilibrasi.github.io/zlibcomplete/)
+See [Full Documentation here](http://rudi-cilibrasi.github.io/zlibcomplete/).
+
+Also can be generated locally:
+
+    cmake -D ZLIBCOMPLETE_DOCS .
+    make docs
+    
+Output will be in `docs/`.
 
 # Usage
 
