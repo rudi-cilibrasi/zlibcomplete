@@ -17,7 +17,7 @@ See [Full Documentation here](http://rudi-cilibrasi.github.io/zlibcomplete/).
 
 Also can be generated locally:
 
-    cmake -D ZLIBCOMPLETE_DOCS .
+    cmake -DZLIBCOMPLETE_DOCS=.
     make docs
     
 Output will be in `docs/`.
