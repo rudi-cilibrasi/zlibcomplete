@@ -1,0 +1,9 @@
+From github:
+
+control loop bug fix  :          DeLadoss              (PR#2)
+packaging and bug fix :          snej                  (PR#6)
+cmake                 :          foxcpp & HexwellC     (PR#8-10)
+
+Thank you to all contributors to zlibcomplete!
+-rudi
+

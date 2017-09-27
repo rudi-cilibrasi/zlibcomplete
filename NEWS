@@ -1,2 +1,5 @@
 Sun Jul  5 15:38:25 PDT 2015
   * Initial release.
+Tue Sep 26 21:01:57 PDT 2017
+	* Switch to cmake.
+	* Release version 1.0.5
