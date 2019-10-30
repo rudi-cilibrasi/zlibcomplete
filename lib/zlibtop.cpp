@@ -34,7 +34,7 @@ std::string ZLibBaseCompressor::baseCompress(const std::string& input) {
     throw std::exception();
   }
   for (uint32_t i = 0; i < input.length(); i += ZLIB_COMPLETE_CHUNK) {
-    const uInt howManyLeft = static_cast<uInt>(input.length() - i);
+    const auto howManyLeft = static_cast<uInt>(input.length() - i);
     const bool isLastRound = (howManyLeft <= ZLIB_COMPLETE_CHUNK);
     const auto howManyWanted = (howManyLeft > ZLIB_COMPLETE_CHUNK) ?
                            ZLIB_COMPLETE_CHUNK : howManyLeft;
