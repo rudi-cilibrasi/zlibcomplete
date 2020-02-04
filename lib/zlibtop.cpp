@@ -11,7 +11,7 @@ ZLibBaseCompressor::ZLibBaseCompressor(int level, flush_parameter autoFlush,
                                        int windowBits) {
   int retval;
   finished_ = false;
-  autoFlush_ = autoFlush;
+  autoFlush_ = autoFlush != no_flush;
   strm_.zalloc = Z_NULL;
   strm_.zfree = Z_NULL;
   strm_.opaque = Z_NULL;
@@ -34,9 +34,9 @@ std::string ZLibBaseCompressor::baseCompress(const std::string& input) {
     throw std::exception();
   }
   for (uint32_t i = 0; i < input.length(); i += ZLIB_COMPLETE_CHUNK) {
-    int howManyLeft = input.length() - i;
-    bool isLastRound = (howManyLeft <= ZLIB_COMPLETE_CHUNK);
-    int howManyWanted = (howManyLeft > ZLIB_COMPLETE_CHUNK) ?
+    const auto howManyLeft = static_cast<uInt>(input.length() - i);
+    const bool isLastRound = (howManyLeft <= ZLIB_COMPLETE_CHUNK);
+    const auto howManyWanted = (howManyLeft > ZLIB_COMPLETE_CHUNK) ?
                            ZLIB_COMPLETE_CHUNK : howManyLeft;
     memcpy(in_, input.data()+i, howManyWanted);
     strm_.avail_in = howManyWanted;
@@ -105,8 +105,8 @@ std::string ZLibBaseDecompressor::baseDecompress(const std::string& input) {
   int retval;
   std::string result;
   for (uint32_t i = 0; i < input.length(); i += ZLIB_COMPLETE_CHUNK) {
-    int howManyLeft = input.length() - i;
-    int howManyWanted = (howManyLeft > ZLIB_COMPLETE_CHUNK) ?
+    const auto howManyLeft = static_cast<uInt>(input.length() - i);
+    const auto howManyWanted = (howManyLeft > ZLIB_COMPLETE_CHUNK) ?
                            ZLIB_COMPLETE_CHUNK : howManyLeft;
     memcpy(in_, input.data()+i, howManyWanted);
     strm_.avail_in = howManyWanted;
